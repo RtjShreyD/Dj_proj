@@ -18,6 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog_dev/', include('blog.urls')),
-    #path('', include('blog.urls')), #This line replaced by above will open blog app every time when we run server normally 
+    #path('blog_dev/', include('blog.urls')),
+    path('', include('blog.urls')), #This line replaced by above will open blog app every time when we run server normally 
 ]
