@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">               <! look comment below>
+            {% csrf_token %}               <! This csrf token is a security token which is required for every form to prevent attacks>
+            <fieldset class= "form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>              <! mb-margin bottom and join today is for adding a legend of today>
+                {{ form.as_p }}            <! To print our form and as.p method renders our form as a paragraph tag>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already have an account? <a class="ml-2" href="#">Sign In</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
+
+
+<!  HTTP POST requests supply additional data from the client (browser) to the server in the message body. 
+    In contrast, GET requests include all required data in the URL. 
+    Forms in HTML can use either method by specifying method="POST" or method="GET" (default) in the <form> element. 
+    The method specified determines how form data is submitted to the server. 
+    When the method is GET, all form data is encoded into the URL, appended to the action URL as query string parameters. 
+    With POST, form data appears within the message body of the HTTP request. >
