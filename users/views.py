@@ -8,10 +8,9 @@ def register(request):
         if form.is_valid():
             form.save()  #Saving the user, also hashes pwd and does all backend stuff
             username = form.cleaned_data.get('username') #username data will be in the cleaned_data dictionary
-            messages.success(request, f'Account created for { username }!') 
-            
-            #after the above the user has to be redirected to the next page(home page here) so her we go, 
-            return redirect('blog-home')
+            messages.success(request, f'Your account has been created! You are now able to log in') 
+            #after the above the user has to be redirected to the next page(now login page) so her we go, 
+            return redirect('login')
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
