@@ -2,11 +2,11 @@
 {% load crispy_forms_tags %} 
 {% block content %}
     <div class="content-section">
-        <form method="POST">               <! look comment below>
-            {% csrf_token %}               <! This csrf token is a security token which is required for every form to prevent attacks>
+        <form method="POST">               <!-- look comment below-->
+            {% csrf_token %}               <!-- This csrf token is a security token which is required for every form to prevent attacks-->
             <fieldset class= "form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>              <! mb-margin bottom and join today is for adding a legend of today>
-                {{ form|crispy}}            <! now crispy does all the styling for us, more styling can be done by looking crispy docs>
+                <legend class="border-bottom mb-4">Join Today</legend>              <!-- mb-margin bottom and join today is for adding a legend of today -->
+                {{ form|crispy}}            <!-- now crispy does all the styling for us, more styling can be done by looking crispy docs -->
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Sign Up</button>
@@ -14,7 +14,7 @@
         </form>
         <div class="border-top pt-3">
             <small class="text-muted">
-                Already have an account? <a class="ml-2" href="#">Sign In</a>
+                Already have an account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
             </small>
         </div>
     </div>
