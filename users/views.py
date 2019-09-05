@@ -1,20 +1,21 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserRegisterForm #pre-built UserCreationForm has been replaced now and we have our own form
+from django.contrib.auth.decorators import login_required #Importing login_required decorator
+from .forms import UserRegisterForm 
 
 def register(request):
     if request.method == 'POST':
-        form = UserRegisterForm(request.POST) #for a post request validating data from here
+        form = UserRegisterForm(request.POST) 
         if form.is_valid():
-            form.save()  #Saving the user, also hashes pwd and does all backend stuff
-            username = form.cleaned_data.get('username') #username data will be in the cleaned_data dictionary
+            form.save()  
+            username = form.cleaned_data.get('username') 
             messages.success(request, f'Your Account has been created, You can login now') 
             
-            #after the above the user has to be redirected to the next page(home page here) so her we go, 
             return redirect('login')
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
 
-#So with the abovve new user account has not really been created, 
-#however we know that our forms are validating data and responding.
+@login_required  #Builtin Django Decorator to put a check on opening the profile page manually if user is not logged in
+def profile(request):
+    return render(request, 'users/profile.html')
