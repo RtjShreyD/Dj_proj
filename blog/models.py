@@ -14,5 +14,5 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self): #This function creates a GET absolute url method that returns the path of post-detail, could also be set to home
-        return reverse('blog-home', kwargs={'pk': self.pk}) #pk is the url parameter for primary key
+        return reverse('post-detail', kwargs={'pk': self.pk}) #pk is the url parameter for primary key
         #return reverse('blog-home') #Uncomment this and comment above to redirect to home
