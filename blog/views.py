@@ -1,12 +1,9 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin 
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Post
 
-'''def home(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'blog/home.html', context)'''
+#As we shifted to class based views from function based views, home(request) got removed from above
 
 class PostListView(ListView):
     model = Post
@@ -17,7 +14,7 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):  #In Class based views instead of loginrequired decorator this is used
     model = Post
     fields = ['title', 'content'] #These fields are going into crispy forms
 
