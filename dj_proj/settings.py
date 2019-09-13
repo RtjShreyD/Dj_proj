@@ -129,3 +129,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_USER') #login email address for gmail
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASS') #password for gmail
+#Set environment variables above in virtual environment only link to setup is below
+# https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/

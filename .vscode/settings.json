@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/rtj/Tronano/Presently/AWebApp/djangox/bin/python"
+    "python.pythonPath": "/home/rtj/Tronano/Presently/AWebApp/djangox/bin/python",
+    "git.ignoreLimitWarning": true
 }
