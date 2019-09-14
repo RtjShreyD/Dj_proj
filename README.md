@@ -9,3 +9,5 @@ https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/
 To run the the app type,
 pythonn3 manage.py runserver
 
+deployment part yet to do
+
